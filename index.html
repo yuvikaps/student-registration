@@ -55,7 +55,14 @@ button{width:100%;padding:12px;margin-top:20px;background:#0b63ce;color:#fff;bor
 <label>Semester</label>
 <select name="semester" required>
 <option value="">Select</option>
-<option>S1</option><option>S2</option><option>
+<option>S1</option>
+<option>S2</option>
+<option>S3</option>
+<option>S4</option>
+<option>S5</option>
+<option>S6</option>
+<option>S7</option>
+<option>S8</option>
 </select>
 <label>Mobile</label><input name="mobile">
 <label>Email</label><input type="email" name="email">
@@ -85,6 +92,14 @@ button{width:100%;padding:12px;margin-top:20px;background:#0b63ce;color:#fff;bor
 </div>
 <script>
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwslqS7-7EGCnOunTGLtC9_hMXoaubhG0bo4s0KiiLPtk4ViYLl9Gj_ThUIfyEtqkdM/exec";
+function toggleBoarding() {
+const bus=document.getElementById("busfacility").value;
+const div=document.getElementById("boardingDiv");
+const input=document.getElementById("boardingpoint");
+if(bus==="Yes"){div.style.display="block";input.required=true;}
+else{div.style.display="none";input.required=false;input.value="";}
+}
+
 document.getElementById("studentForm").addEventListener("submit",async(e)=>{
 e.preventDefault();
 msg.textContent="Submitting...";
@@ -97,3 +112,4 @@ try{
 });
 </script>
 </body></html>
+
