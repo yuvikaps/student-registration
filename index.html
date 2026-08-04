@@ -4,122 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Registration</title>
-
 <style>
-
-body{
-    font-family:Arial, sans-serif;
-    background:#f0f4f8;
-    margin:0;
-}
-
-.container{
-    width:90%;
-    max-width:600px;
-    margin:30px auto;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,.2);
-}
-
-h2{
-    text-align:center;
-    color:#0b5ed7;
-}
-
-label{
-    font-weight:bold;
-}
-
-input,select,textarea{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-    margin-bottom:15px;
-    border:1px solid #ccc;
-    border-radius:5px;
-    box-sizing:border-box;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    background:#198754;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#157347;
-}
-
+body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0}
+.container{max-width:650px;margin:30px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+h2{text-align:center;color:#0b63ce}
+label{display:block;margin-top:12px;font-weight:bold}
+input,select,textarea{width:100%;padding:10px;margin-top:5px;box-sizing:border-box}
+button{width:100%;padding:12px;margin-top:20px;background:#0b63ce;color:#fff;border:none;border-radius:5px;font-size:16px;cursor:pointer}
+#msg{margin-top:15px;text-align:center;font-weight:bold}
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
-<h2>Student Registration Form</h2>
-
-<form>
-
-<label>Student Name</label>
-<input type="text">
-
-<label>Register Number</label>
-<input type="text">
-
+<h2>Student Registration</h2>
+<form id="studentForm">
+<label>Student Name</label><input name="name" required>
 <label>Department</label>
-
-<select>
-<option>Select Department</option>
+<select name="department" required>
+<option value="">Select</option>
 <option>Computer Science</option>
 <option>Electronics & Communication</option>
 <option>Electrical & Electronics</option>
 <option>Mechanical</option>
 <option>Civil</option>
 </select>
-
 <label>Semester</label>
-
-<select>
-<option>Select Semester</option>
-<option>S1</option>
-<option>S2</option>
-<option>S3</option>
-<option>S4</option>
-<option>S5</option>
-<option>S6</option>
-<option>S7</option>
-<option>S8</option>
+<select name="semester" required>
+<option value="">Select</option>
+<option>S1</option><option>S2</option><option>S3</option><option>S4</option>
+<option>S5</option><option>S6</option><option>S7</option><option>S8</option>
 </select>
-
-<label>Mobile Number</label>
-<input type="tel">
-
-<label>Email</label>
-<input type="email">
-
-<label>Parent Name</label>
-<input type="text">
-
-<label>Parent Mobile</label>
-<input type="tel">
-
-<label>Address</label>
-<textarea rows="4"></textarea>
-
+<label>Mobile</label><input name="mobile">
+<label>Email</label><input type="email" name="email">
+<label>Parent Name</label><input name="parentname">
+<label>Parent Mobile</label><input name="parentmobile">
+<label>Address</label><textarea name="address"></textarea>
 <button type="submit">Submit</button>
-
+<div id="msg"></div>
 </form>
-
 </div>
-
-</body>
-</html>
+<script>
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwslqS7-7EGCnOunTGLtC9_hMXoaubhG0bo4s0KiiLPtk4ViYLl9Gj_ThUIfyEtqkdM/exec";
+document.getElementById("studentForm").addEventListener("submit",async(e)=>{
+e.preventDefault();
+msg.textContent="Submitting...";
+try{
+ let r=await fetch(SCRIPT_URL,{method:"POST",body:new FormData(e.target)});
+ let t=await r.text();
+ msg.textContent="Registration Successful";
+ e.target.reset();
+}catch(err){msg.textContent="Submission Failed";}
+});
+</script>
+</body></html>
