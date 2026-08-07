@@ -52,7 +52,27 @@ button{width:100%;padding:12px;margin-top:20px;background:#0b63ce;color:#fff;bor
 <option>BBA</option>
    <option>MBA</option>
 
-<label>Mobile</label><input name="mobile"required>
+<label>Mobile</label>
+<input
+  type="tel"
+  id="mobile"
+  name="mobile"
+  maxlength="10"
+  pattern="[6-9][0-9]{9}"
+  required
+>
+<small id="mobileError" style="color:red;"></small>
+
+
+
+
+
+
+
+
+
+
+   
 <label>Email</label><input type="email" name="email"required>
 <label>Parent Name</label><input name="parentname"required>
 <label>Parent Mobile</label><input name="parentmobile"required>
