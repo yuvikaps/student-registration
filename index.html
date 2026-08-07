@@ -238,15 +238,23 @@ button:disabled {
         </div>
 
 
-        <!-- Bus Facility -->
+       <label>Bus Facility Needed</label>
 
-        <label>Bus Facility Needed</label>
+<select name="busfacility" id="busfacility" required onchange="toggleBoardingPoint()">
+    <option value="">Select</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+</select>
 
-        <select name="busfacility" required>
+<div id="boardingPointSection" style="display:none;">
+    <label>Boarding Point</label>
 
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+    <input
+        type="text"
+        id="boardingpoint"
+        name="boardingpoint"
+        placeholder="Enter Boarding Point">
+</div>
 
         </select>
 
