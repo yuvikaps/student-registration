@@ -3,140 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student REGISTRATION</title>
+
+<title>Student Registration</title>
+
 <style>
-   
-body{
+
+body {
     font-family: Arial, sans-serif;
-    margin:0;
+    margin: 0;
+
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
         url('background.jpeg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-   
-.container{max-width:650px;margin:30px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
-h2{text-align:center;color:#0b63ce}
-label{display:block;margin-top:12px;font-weight:bold}
-input,select,textarea{width:100%;padding:10px;margin-top:5px;box-sizing:border-box}
-button{width:100%;padding:12px;margin-top:20px;background:#0b63ce;color:#fff;border:none;border-radius:5px;font-size:16px;cursor:pointer}
-#msg{margin-top:15px;text-align:center;font-weight:bold}
+
+.container {
+    max-width: 650px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+h2 {
+    text-align: center;
+    color: #0b63ce;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 700px;
+    width: 95%;
+    height: auto;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0b63ce;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #0b63ce;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #084e9f;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+#msg {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.note {
+    color: #666;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
 </style>
 </head>
+
 <body>
-<div style="background:white;
-            padding:15px;
-            text-align:center;
-            box-shadow:0 3px 10px rgba(0,0,0,.3);">
 
-    <img src="trt.png"
-         style="max-width:700px;width:95%;height:auto;">
-
-</div>
-</div>
 <div class="container">
-<h2>STUDENT REGISTRATION</h2>
-<form id="studentForm">
-<label>Student Name</label><input name="name" required>
-<label>Department</label>
-<select name="department" required>
-<option value="">Select</option>
-<option>BTech Computer Science engineering </option>
-   <option>BTech Computer Science And Business systems</option>
-<option> BTech Electronics & Communication</option>
-<option>BTech Artificial intelligence and Data science</option>
-<option>BCA</option>
-<option>BBA</option>
-   <option>MBA</option>
 
-<label>Mobile</label>
-<input
-  type="tel"
-  id="mobile"
-  name="mobile"
-  maxlength="10"
-  pattern="[6-9][0-9]{9}"
-  required>
-<small id="mobileError" style="color:red;"></small>
+    <!-- College / Registration Image -->
+
+    <div class="logo">
+        <img src="trt.png" alt="College">
+    </div>
+
+    <h2>STUDENT REGISTRATION</h2>
+
+    <form id="studentForm">
+
+        <!-- Student Name -->
+
+        <label>Student Name</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter Student Name"
+            required>
 
 
+        <!-- Department -->
+
+        <label>Department</label>
+
+        <select name="department" required>
+
+            <option value="">Select Department</option>
+
+            <option>BTech Computer Science Engineering</option>
+
+            <option>
+                BTech Computer Science and Business Systems
+            </option>
+
+            <option>
+                BTech Electronics & Communication Engineering
+            </option>
+
+            <option>
+                BTech Artificial Intelligence and Data Science
+            </option>
+
+            <option>BCA</option>
+
+            <option>BBA</option>
+
+            <option>MBA</option>
+
+        </select>
 
 
+        <!-- Semester -->
+
+        <label>Semester</label>
+
+        <select name="semester" required>
+
+            <option value="">Select Semester</option>
+
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+            <option>S4</option>
+            <option>S5</option>
+            <option>S6</option>
+            <option>S7</option>
+            <option>S8</option>
+
+        </select>
 
 
+        <!-- Student Mobile -->
+
+        <label>Mobile Number</label>
+
+        <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            maxlength="10"
+            minlength="10"
+            pattern="[6-9][0-9]{9}"
+            inputmode="numeric"
+            placeholder="Enter 10 digit mobile number"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+            required>
+
+        <div class="note">
+            Enter a valid 10 digit Indian mobile number.
+        </div>
 
 
+        <!-- Email -->
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email Address"
+            required>
 
 
-   
-<label>Email</label><input type="email" name="email"required>
-<label>Parent Name</label><input name="parentname"required>
-<label>Parent Mobile</label><input name="parentmobile"required>
+        <!-- Parent Name -->
 
-<label>Bus Facility Needed</label>
-<select id="busfacility" name="busfacility" onchange="toggleBoarding()" required>
-    <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
+        <label>Parent Name</label>
 
-<div id="boardingDiv" style="display:none; margin-top:15px;">
-    <label>Boarding Point</label>
-    <input type="text" id="boardingpoint" name="boardingpoint">
+        <input
+            type="text"
+            name="parentname"
+            placeholder="Enter Parent Name"
+            required>
+
+
+        <!-- Parent Mobile -->
+
+        <label>Parent Mobile Number</label>
+
+        <input
+            type="tel"
+            id="parentmobile"
+            name="parentmobile"
+            maxlength="10"
+            minlength="10"
+            pattern="[6-9][0-9]{9}"
+            inputmode="numeric"
+            placeholder="Enter Parent Mobile Number"
+            oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+            required>
+
+        <div class="note">
+            Enter a valid 10 digit Indian mobile number.
+        </div>
+
+
+        <!-- Bus Facility -->
+
+        <label>Bus Facility Needed</label>
+
+        <select name="busfacility" required>
+
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+
+        </select>
+
+
+        <!-- Hostel Facility -->
+
+        <label>Hostel Facility Needed</label>
+
+        <select name="hostelfacility" required>
+
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+
+        </select>
+
+
+        <!-- Submit -->
+
+        <button type="submit" id="submitBtn">
+            Submit Registration
+        </button>
+
+        <div id="msg"></div>
+
+    </form>
+
 </div>
-   
-   <label>HOSTEL facility needed</label>
-<select name="hostelfacility" required>
-<option value="">Select</option>
-<option>Yes</option><option>No</option><option>
-   </select>
-<button type="submit">Submit</button>
-<div id="msg"></div>
-</form>
-</div>
+
+
 <script>
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwslqS7-7EGCnOunTGLtC9_hMXoaubhG0bo4s0KiiLPtk4ViYLl9Gj_ThUIfyEtqkdM/exec";
-function toggleBoarding() {
-const bus=document.getElementById("busfacility").value;
-const div=document.getElementById("boardingDiv");
-const input=document.getElementById("boardingpoint");
-if(bus==="Yes"){div.style.display="block";input.required=true;}
-else{div.style.display="none";input.required=false;input.value="";}
-}
 
-document.getElementById("studentForm").addEventListener("submit",async(e)=>{
-e.preventDefault();
-msg.textContent="Submitting...";
-try{
- let r=await fetch(SCRIPT_URL,{method:"POST",body:new FormData(e.target)});
- let t=await r.text();
- msg.textContent="Registration Successful";
- e.target.reset();
-}catch(err){msg.textContent="Submission Failed";}
+/*
+----------------------------------------------------
+PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
+----------------------------------------------------
+*/
+
+const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxgAt5XudrdmXCIXPXpgxRxOXgjs2Ao9LHRiz16eXDAf2eg-X-947SKqh-zyXTTQhBV/exec";
+
+
+/*
+----------------------------------------------------
+FORM SUBMISSION
+----------------------------------------------------
+*/
+
+document
+.getElementById("studentForm")
+.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+
+    const form = e.target;
+
+    const msg =
+        document.getElementById("msg");
+
+    const submitBtn =
+        document.getElementById("submitBtn");
+
+    const mobile =
+        document.getElementById("mobile")
+        .value.trim();
+
+    const parentMobile =
+        document.getElementById("parentmobile")
+        .value.trim();
+
+
+    /*
+    Indian mobile number validation
+    Must:
+    - contain 10 digits
+    - start with 6,7,8 or 9
+    */
+
+    const mobilePattern =
+        /^[6-9][0-9]{9}$/;
+
+
+    /*
+    STUDENT MOBILE CHECK
+    */
+
+    if (!mobilePattern.test(mobile)) {
+
+        msg.style.color = "red";
+
+        msg.textContent =
+            "Please enter a valid 10 digit student mobile number.";
+
+        document
+        .getElementById("mobile")
+        .focus();
+
+        return;
+    }
+
+
+    /*
+    PARENT MOBILE CHECK
+    */
+
+    if (!mobilePattern.test(parentMobile)) {
+
+        msg.style.color = "red";
+
+        msg.textContent =
+            "Please enter a valid 10 digit parent mobile number.";
+
+        document
+        .getElementById("parentmobile")
+        .focus();
+
+        return;
+    }
+
+
+    /*
+    START SUBMISSION
+    */
+
+    msg.style.color = "#0b63ce";
+
+    msg.textContent =
+        "Submitting registration...";
+
+    submitBtn.disabled = true;
+
+
+    try {
+
+        const response =
+            await fetch(
+                SCRIPT_URL,
+                {
+                    method: "POST",
+                    body: new FormData(form)
+                }
+            );
+
+
+        const result =
+            await response.text();
+
+
+        msg.style.color = "green";
+
+        msg.textContent =
+            "Registration Successful";
+
+
+        /*
+        Clear form after successful submission
+        */
+
+        form.reset();
+
+
+    } catch(error) {
+
+        console.error(error);
+
+        msg.style.color = "red";
+
+        msg.textContent =
+            "Submission Failed. Please try again.";
+
+    }
+
+
+    submitBtn.disabled = false;
+
 });
+
 </script>
 
-<footer class="college-footer">
-  <div class="footer-content">
-   
-<h3 style="color:white;">
-    KMCT College of Engineering for Emerging Technology and Management Vadakara
-</h3>
-    <div class="footer-divider"></div>
-
-   
-  </div>
-</footer>
-
-
-
-
-
-   
-
-
-   
-</body></html>
+</body>
+</html>
