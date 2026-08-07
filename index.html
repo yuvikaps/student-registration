@@ -3,181 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Student Registration</title>
+<title>THALIR 2026 Student Registration</title>
 
 <style>
-
-body {
+body{
     font-family: Arial, sans-serif;
-    margin: 0;
-
+    margin:0;
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
         url('background.jpeg');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 }
 
-.container {
-    max-width: 650px;
-    margin: 30px auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+.container{
+    max-width:650px;
+    margin:30px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
 }
 
-h2 {
-    text-align: center;
-    color: #0b63ce;
+.logo{text-align:center;margin-bottom:10px;}
+.logo img{max-width:700px;width:95%;height:auto;}
+
+.title{text-align:center;margin-bottom:20px;line-height:1.2;}
+.thalir{
+    display:block;
+    font-size:44px;
+    font-weight:800;
+    color:#2E8B57;
+    letter-spacing:2px;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.20);
+}
+.subtitle{
+    display:block;
+    font-size:24px;
+    font-weight:bold;
+    color:#0b63ce;
+    margin-top:8px;
+    letter-spacing:1px;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 20px;
+label{display:block;margin-top:12px;font-weight:bold;}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
 }
 
-.logo img {
-    max-width: 700px;
-    width: 95%;
-    height: auto;
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#0b63ce;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
 }
+button:disabled{background:#999;cursor:not-allowed;}
 
-label {
-    display: block;
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #0b63ce;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background: #0b63ce;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #084e9f;
-}
-
-button:disabled {
-    background: #999;
-    cursor: not-allowed;
-}
-
-#msg {
-    margin-top: 15px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.note {
-    color: #666;
-    font-size: 12px;
-    margin-top: 3px;
-}
-
+#msg{margin-top:15px;text-align:center;font-weight:bold;}
+.note{color:#666;font-size:12px;margin-top:3px;}
+#boardingPointSection{display:none;}
 </style>
 </head>
 
 <body>
-
 <div class="container">
-
-    <!-- College / Registration Image -->
 
     <div class="logo">
         <img src="trt.png" alt="College">
     </div>
 
-   <h2>
-    THALIR 2026<br>
-    <span class="subtitle">STUDENT REGISTRATION</span>
-</h2>
-
-
-
-    
+    <h2 class="title">
+        <span class="thalir">THALIR 2026</span>
+        <span class="subtitle">STUDENT REGISTRATION</span>
+    </h2>
 
     <form id="studentForm">
 
-        <!-- Student Name -->
-
         <label>Student Name</label>
-        <input
-            type="text"
-            name="name"
-            placeholder="Enter Student Name"
-            required>
-
-
-        <!-- Department -->
+        <input type="text" name="name" placeholder="Enter Student Name" required>
 
         <label>Department</label>
-
         <select name="department" required>
-
             <option value="">Select Department</option>
-
             <option>BTech Computer Science Engineering</option>
-
-            <option>
-                BTech Computer Science and Business Systems
-            </option>
-
-            <option>
-                BTech Electronics & Communication Engineering
-            </option>
-
-            <option>
-                BTech Artificial Intelligence and Data Science
-            </option>
-
+            <option>BTech Computer Science and Business Systems</option>
+            <option>BTech Electronics & Communication Engineering</option>
+            <option>BTech Artificial Intelligence and Data Science</option>
             <option>BCA</option>
-
             <option>BBA</option>
-
             <option>MBA</option>
-
         </select>
 
-
-     
-  
-
-
-        <!-- Student Mobile -->
-
         <label>Mobile Number</label>
-
         <input
             type="tel"
             id="mobile"
@@ -189,38 +120,15 @@ button:disabled {
             placeholder="Enter 10 digit mobile number"
             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
             required>
-
-        <div class="note">
-            Enter a valid 10 digit Indian mobile number.
-        </div>
-
-
-        <!-- Email -->
+        <div class="note">Enter a valid 10 digit Indian mobile number.</div>
 
         <label>Email</label>
-
-        <input
-            type="email"
-            name="email"
-            placeholder="Enter Email Address"
-            required>
-
-
-        <!-- Parent Name -->
+        <input type="email" name="email" placeholder="Enter Email Address" required>
 
         <label>Parent Name</label>
-
-        <input
-            type="text"
-            name="parentname"
-            placeholder="Enter Parent Name"
-            required>
-
-
-        <!-- Parent Mobile -->
+        <input type="text" name="parentname" placeholder="Enter Parent Name" required>
 
         <label>Parent Mobile Number</label>
-
         <input
             type="tel"
             id="parentmobile"
@@ -232,207 +140,116 @@ button:disabled {
             placeholder="Enter Parent Mobile Number"
             oninput="this.value=this.value.replace(/[^0-9]/g,'')"
             required>
+        <div class="note">Enter a valid 10 digit Indian mobile number.</div>
 
-        <div class="note">
-            Enter a valid 10 digit Indian mobile number.
-        </div>
-
-
-       <label>Bus Facility Needed</label>
-
-<select name="busfacility" id="busfacility" required onchange="toggleBoardingPoint()">
-    <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-</select>
-
-<div id="boardingPointSection" style="display:none;">
-    <label>Boarding Point</label>
-
-    <input
-        type="text"
-        id="boardingpoint"
-        name="boardingpoint"
-        placeholder="Enter Boarding Point">
-</div>
-
-        </select>
-
-
-        <!-- Hostel Facility -->
-
-        <label>Hostel Facility Needed</label>
-
-        <select name="hostelfacility" required>
-
+        <label>Bus Facility Needed</label>
+        <select id="busfacility" name="busfacility" required>
             <option value="">Select</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
-
         </select>
 
+        <div id="boardingPointSection">
+            <label>Boarding Point</label>
+            <input
+                type="text"
+                id="boardingpoint"
+                name="boardingpoint"
+                placeholder="Enter Boarding Point">
+        </div>
 
-        <!-- Submit -->
+        <label>Hostel Facility Needed</label>
+        <select name="hostelfacility" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
 
-        <button type="submit" id="submitBtn">
-            Submit Registration
-        </button>
-
+        <button type="submit" id="submitBtn">Submit Registration</button>
         <div id="msg"></div>
 
     </form>
-
 </div>
 
-
 <script>
+const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
-/*
-----------------------------------------------------
-PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
-----------------------------------------------------
-*/
+const busFacility = document.getElementById("busfacility");
+const boardingPointSection = document.getElementById("boardingPointSection");
+const boardingPoint = document.getElementById("boardingpoint");
 
-const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxgAt5XudrdmXCIXPXpgxRxOXgjs2Ao9LHRiz16eXDAf2eg-X-947SKqh-zyXTTQhBV/exec";
+function toggleBoardingPoint(){
+    if(busFacility.value === "Yes"){
+        boardingPointSection.style.display = "block";
+        boardingPoint.required = true;
+    }else{
+        boardingPointSection.style.display = "none";
+        boardingPoint.required = false;
+        boardingPoint.value = "";
+    }
+}
 
+busFacility.addEventListener("change", toggleBoardingPoint);
 
-/*
-----------------------------------------------------
-FORM SUBMISSION
-----------------------------------------------------
-*/
-
-document
-.getElementById("studentForm")
-.addEventListener("submit", async function(e) {
-
+document.getElementById("studentForm").addEventListener("submit", async function(e){
     e.preventDefault();
 
-
     const form = e.target;
+    const msg = document.getElementById("msg");
+    const submitBtn = document.getElementById("submitBtn");
 
-    const msg =
-        document.getElementById("msg");
+    const mobile = document.getElementById("mobile").value.trim();
+    const parentMobile = document.getElementById("parentmobile").value.trim();
+    const mobilePattern = /^[6-9][0-9]{9}$/;
 
-    const submitBtn =
-        document.getElementById("submitBtn");
-
-    const mobile =
-        document.getElementById("mobile")
-        .value.trim();
-
-    const parentMobile =
-        document.getElementById("parentmobile")
-        .value.trim();
-
-
-    /*
-    Indian mobile number validation
-    Must:
-    - contain 10 digits
-    - start with 6,7,8 or 9
-    */
-
-    const mobilePattern =
-        /^[6-9][0-9]{9}$/;
-
-
-    /*
-    STUDENT MOBILE CHECK
-    */
-
-    if (!mobilePattern.test(mobile)) {
-
+    if(!mobilePattern.test(mobile)){
         msg.style.color = "red";
-
-        msg.textContent =
-            "Please enter a valid 10 digit student mobile number.";
-
-        document
-        .getElementById("mobile")
-        .focus();
-
+        msg.textContent = "Please enter a valid 10 digit student mobile number.";
+        document.getElementById("mobile").focus();
         return;
     }
 
-
-    /*
-    PARENT MOBILE CHECK
-    */
-
-    if (!mobilePattern.test(parentMobile)) {
-
+    if(!mobilePattern.test(parentMobile)){
         msg.style.color = "red";
-
-        msg.textContent =
-            "Please enter a valid 10 digit parent mobile number.";
-
-        document
-        .getElementById("parentmobile")
-        .focus();
-
+        msg.textContent = "Please enter a valid 10 digit parent mobile number.";
+        document.getElementById("parentmobile").focus();
         return;
     }
 
-
-    /*
-    START SUBMISSION
-    */
+    if(busFacility.value === "Yes" && boardingPoint.value.trim() === ""){
+        msg.style.color = "red";
+        msg.textContent = "Please enter the boarding point.";
+        boardingPoint.focus();
+        return;
+    }
 
     msg.style.color = "#0b63ce";
-
-    msg.textContent =
-        "Submitting registration...";
-
+    msg.textContent = "Submitting registration...";
     submitBtn.disabled = true;
 
+    try{
+        const response = await fetch(SCRIPT_URL, {
+            method: "POST",
+            body: new FormData(form)
+        });
 
-    try {
-
-        const response =
-            await fetch(
-                SCRIPT_URL,
-                {
-                    method: "POST",
-                    body: new FormData(form)
-                }
-            );
-
-
-        const result =
-            await response.text();
-
+        const result = await response.text();
 
         msg.style.color = "green";
-
-        msg.textContent =
-            "Registration Successful";
-
-
-        /*
-        Clear form after successful submission
-        */
+        msg.textContent = "Registration Successful";
 
         form.reset();
+        boardingPointSection.style.display = "none";
+        boardingPoint.required = false;
 
-
-    } catch(error) {
-
-        console.error(error);
-
+    }catch(err){
+        console.error(err);
         msg.style.color = "red";
-
-        msg.textContent =
-            "Submission Failed. Please try again.";
-
+        msg.textContent = "Submission Failed. Please try again.";
     }
 
-
     submitBtn.disabled = false;
-
 });
-
 </script>
 
 </body>
